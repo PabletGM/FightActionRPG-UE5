@@ -1,0 +1,12 @@
+/NOLOGO
+/errorReport:prompt
+/MACHINE:x64
+/SUBSYSTEM:WINDOWS
+/DEF
+/NAME:"UnrealEditor-Warrior.dll"
+/IGNORE:4221
+/NODEFAULTLIB
+"C:\Users\pgmla\OneDrive\Escritorio\FightActionRPG-UE5\FightActionRPG-UE5\Warrior\Intermediate\Build\Win64\x64\WarriorEditor\Development\Engine\SharedPCH.Engine.Cpp20.h.obj"
+"C:\Users\pgmla\OneDrive\Escritorio\FightActionRPG-UE5\FightActionRPG-UE5\Warrior\Intermediate\Build\Win64\x64\UnrealEditor\Development\Warrior\Warrior.cpp.obj"
+"C:\Users\pgmla\OneDrive\Escritorio\FightActionRPG-UE5\FightActionRPG-UE5\Warrior\Intermediate\Build\Win64\x64\UnrealEditor\Development\Warrior\Default.rc2.res"
+/OUT:"C:\Users\pgmla\OneDrive\Escritorio\FightActionRPG-UE5\FightActionRPG-UE5\Warrior\Intermediate\Build\Win64\x64\UnrealEditor\Development\Warrior\UnrealEditor-Warrior.lib"
