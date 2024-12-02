@@ -51,6 +51,12 @@
     <ClCompile Include="..\..\Source\Warrior\Private\Characters\WarrriorBaseCharacter.cpp">
       <Filter>Source\Warrior\Private\Characters</Filter>
     </ClCompile>
+    <Filter Include="Source\Warrior\Private\Controllers">
+      <UniqueIdentifier>{427A409D-DA7D-36A6-A7B9-EC8DDDA6ED55}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\Warrior\Private\Controllers\WarriorHeroController.cpp">
+      <Filter>Source\Warrior\Private\Controllers</Filter>
+    </ClCompile>
     <Filter Include="Source\Warrior\Private\GameModes">
       <UniqueIdentifier>{0D1A8259-3380-3B26-91BB-A7128220098B}</UniqueIdentifier>
     </Filter>
@@ -68,6 +74,12 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\Warrior\Public\Characters\WarrriorBaseCharacter.h">
       <Filter>Source\Warrior\Public\Characters</Filter>
+    </ClInclude>
+    <Filter Include="Source\Warrior\Public\Controllers">
+      <UniqueIdentifier>{465C914F-3C14-35C1-91F2-13B6441A3F6A}</UniqueIdentifier>
+    </Filter>
+    <ClInclude Include="..\..\Source\Warrior\Public\Controllers\WarriorHeroController.h">
+      <Filter>Source\Warrior\Public\Controllers</Filter>
     </ClInclude>
     <Filter Include="Source\Warrior\Public\GameModes">
       <UniqueIdentifier>{3B652AF5-C50C-31D0-A775-F1AFA9747A91}</UniqueIdentifier>

@@ -131,6 +131,11 @@
       <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles)</ForcedIncludeFiles>
       <AdditionalOptions>$(ClCompile_AdditionalOptions)</AdditionalOptions>
     </ClCompile>
+    <ClCompile Include="..\..\Source\Warrior\Private\Controllers\WarriorHeroController.cpp">
+      <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles)</ForcedIncludeFiles>
+      <AdditionalOptions>$(ClCompile_AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
     <ClCompile Include="..\..\Source\Warrior\Private\GameModes\WarriorBaseGameMode.cpp">
       <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles)</ForcedIncludeFiles>
@@ -138,6 +143,7 @@
     </ClCompile>
     <ClInclude Include="..\..\Source\Warrior\Public\Characters\WarriorHeroCharacter.h"/>
     <ClInclude Include="..\..\Source\Warrior\Public\Characters\WarrriorBaseCharacter.h"/>
+    <ClInclude Include="..\..\Source\Warrior\Public\Controllers\WarriorHeroController.h"/>
     <ClInclude Include="..\..\Source\Warrior\Public\GameModes\WarriorBaseGameMode.h"/>
   </ItemGroup>
   <PropertyGroup>
