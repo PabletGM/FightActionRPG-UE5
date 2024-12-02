@@ -1273,3 +1273,38 @@ Would you like to edit the code now?
 [2024.12.02-20.14.29:052][827]LogUObjectHash: Compacting FUObjectHashTables data took   0.42ms
 [2024.12.02-20.14.29:094][828]Display: Reload/Re-instancing Complete: 1 package changed, 1 class new
 [2024.12.02-20.14.29:094][828]LogLiveCoding: Warning: Live coding succeeded, data type changes may cause packaging to fail if assets reference the new or updated data types
+[2024.12.02-20.18.21:025][731]LogLiveCoding: Display: Starting Live Coding compile.
+[2024.12.02-20.18.24:261][799]LogLiveCoding: Display:    Creando biblioteca C:\Users\pgmla\OneDrive\Escritorio\FightActionRPG-UE5\FightActionRPG-UE5\Warrior\Binaries\Win64\UnrealEditor-Warrior.patch_1.lib y objeto C:\Users\pgmla\OneDrive\Escritorio\FightActionRPG-UE5\FightActionRPG-UE5\Warrior\Binaries\Win64\UnrealEditor-Warrior.patch_1.exp
+[2024.12.02-20.18.24:464][800]LogUObjectHash: Compacting FUObjectHashTables data took   0.24ms
+[2024.12.02-20.18.24:740][801]Display: Reload/Re-instancing Complete: No object changes detected
+[2024.12.02-20.18.24:740][801]LogLiveCoding: Display: Live coding succeeded
+[2024.12.02-20.19.09:389][279]LogSlateStyle: Warning: Missing Resource from 'CoreStyle' Style: 'Unable to find Brush 'ContentBrowser.ListViewFolderIcon.Base'.'
+[2024.12.02-20.19.09:389][279]LogSlateStyle: Warning: Missing Resource from 'CoreStyle' Style: 'Unable to find Brush 'ContentBrowser.ListViewFolderIcon.Mask'.'
+[2024.12.02-20.19.32:957][279]Running C:/Program Files/Epic Games/UE_5.3/Engine/Build/BatchFiles/Build.bat  -projectfiles -project="C:/Users/pgmla/OneDrive/Escritorio/FightActionRPG-UE5/FightActionRPG-UE5/Warrior/Warrior.uproject" -game -rocket -progress
+[2024.12.02-20.19.33:060][279]Using bundled DotNet SDK version: 6.0.302
+[2024.12.02-20.19.33:060][279]Running UnrealBuildTool: dotnet "..\..\Engine\Binaries\DotNET\UnrealBuildTool\UnrealBuildTool.dll" -projectfiles -project="C:/Users/pgmla/OneDrive/Escritorio/FightActionRPG-UE5/FightActionRPG-UE5/Warrior/Warrior.uproject" -game -rocket -progress
+[2024.12.02-20.19.33:362][279]Log file: C:\Users\pgmla\AppData\Local\UnrealBuildTool\Log_GPF.txt
+[2024.12.02-20.19.33:563][279]
+[2024.12.02-20.19.33:563][279]Generating VisualStudio project files:
+[2024.12.02-20.19.33:563][279]Discovering modules, targets and source code for project...
+[2024.12.02-20.19.34:368][279]Binding IntelliSense data...
+[2024.12.02-20.19.39:835][279]Binding IntelliSense data... 100%
+[2024.12.02-20.19.39:836][279]Creating common properties file...
+[2024.12.02-20.19.39:836][279]Creating common properties file... 0%
+[2024.12.02-20.19.39:836][279]Writing project files...
+[2024.12.02-20.19.41:246][279]Writing project files... 100%
+[2024.12.02-20.19.41:246][279]
+[2024.12.02-20.19.41:246][279]Generating QueryTargets data for editor...
+[2024.12.02-20.19.52:131][279]LogSlate: Window 'Message' being destroyed
+[2024.12.02-20.19.52:135][279]Message dialog closed, result: No, title: Message, text: Successfully added class 'WarriorHeroCharacter', however you must recompile the 'Warrior' module before it will appear in the Content Browser.
+
+Would you like to edit the code now?
+[2024.12.02-20.19.52:136][279]LogSlate: Window 'Add C++ Class' being destroyed
+[2024.12.02-20.19.52:144][279]LogAutomationController: Ignoring very large delta of 19.30 seconds in calls to FAutomationControllerManager::Tick() and not penalizing unresponsive tests
+[2024.12.02-20.20.00:180][485]LogLiveCoding: Display: Starting Live Coding compile.
+[2024.12.02-20.20.05:496][802]LogLiveCoding: Display:    Creando biblioteca C:\Users\pgmla\OneDrive\Escritorio\FightActionRPG-UE5\FightActionRPG-UE5\Warrior\Binaries\Win64\UnrealEditor-Warrior.patch_2.lib y objeto C:\Users\pgmla\OneDrive\Escritorio\FightActionRPG-UE5\FightActionRPG-UE5\Warrior\Binaries\Win64\UnrealEditor-Warrior.patch_2.exp
+[2024.12.02-20.20.05:616][807]LogClass: UPackage /Script/Warrior Reload.
+[2024.12.02-20.20.05:616][807]LogClass: Could not find existing class WarriorHeroCharacter in package /Script/Warrior for reload, assuming new or modified class
+[2024.12.02-20.20.05:648][807]LogUObjectHash: Compacting FUObjectHashTables data took   0.51ms
+[2024.12.02-20.20.05:668][808]Display: Reload/Re-instancing Complete: 1 package changed, 1 class new
+[2024.12.02-20.20.05:668][808]LogLiveCoding: Warning: Live coding succeeded, data type changes may cause packaging to fail if assets reference the new or updated data types
