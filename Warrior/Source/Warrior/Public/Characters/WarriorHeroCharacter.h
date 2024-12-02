@@ -13,5 +13,8 @@ UCLASS()
 class WARRIOR_API AWarriorHeroCharacter : public AWarrriorBaseCharacter
 {
 	GENERATED_BODY()
+protected:
+	virtual void BeginPlay() override;
+	
 	
 };
