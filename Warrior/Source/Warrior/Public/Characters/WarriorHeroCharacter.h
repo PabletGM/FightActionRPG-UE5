@@ -3,7 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "Characters/WarrriorBaseCharacter.h"
+#include "Characters/WarriorBaseCharacter.h"
 #include "WarriorHeroCharacter.generated.h"
 
 class USpringArmComponent;
@@ -12,7 +12,7 @@ class UDataAsset_InputConfig;
 struct FInputActionValue;
 
 UCLASS()
-class WARRIOR_API AWarriorHeroCharacter : public AWarrriorBaseCharacter
+class WARRIOR_API AWarriorHeroCharacter : public AWarriorBaseCharacter
 {
 	GENERATED_BODY()
 

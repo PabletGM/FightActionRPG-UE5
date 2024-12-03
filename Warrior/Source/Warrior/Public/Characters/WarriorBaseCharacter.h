@@ -4,15 +4,15 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
-#include "WarrriorBaseCharacter.generated.h"
+#include "WarriorBaseCharacter.generated.h"
 
 UCLASS()
-class WARRIOR_API AWarrriorBaseCharacter : public ACharacter
+class WARRIOR_API AWarriorBaseCharacter : public ACharacter
 {
 	GENERATED_BODY()
 
 public:
 	// Sets default values for this character's properties
-	AWarrriorBaseCharacter();
+	AWarriorBaseCharacter();
 
 };

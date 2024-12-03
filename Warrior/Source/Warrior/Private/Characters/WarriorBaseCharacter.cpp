@@ -1,10 +1,10 @@
 // By Pablo Garcia
 
 
-#include "Characters/WarrriorBaseCharacter.h"
+#include "..\..\Public\Characters\WarriorBaseCharacter.h"
 
 // Sets default values
-AWarrriorBaseCharacter::AWarrriorBaseCharacter()
+AWarriorBaseCharacter::AWarriorBaseCharacter()
 {
  	// Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = false;
