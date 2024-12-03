@@ -43,6 +43,7 @@ private:
 		UDataAsset_InputConfig* InputConfigDataAsset;
 
 		void Input_Move(const FInputActionValue& InputActionValue);
+	    void Input_Look(const FInputActionValue& InputActionValue);
 	#pragma endregion
 	
 
