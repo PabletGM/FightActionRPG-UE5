@@ -51,8 +51,6 @@ void AWarriorHeroCharacter::PossessedBy(AController* NewController)
 		{
 			LoadedData->GiveToAbilitySystemComponent(WarriorAbilitySystemComponent);
 		}
-		//check if it is valid
-		
 	}
 }
 
