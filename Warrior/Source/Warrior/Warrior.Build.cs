@@ -15,7 +15,7 @@ public class Warrior : ModuleRules
 			"InputCore",
 			"GameplayTags",
 			"EnhancedInput", 
-			"GameplayTasks"
+			"GameplayTasks",
 		});
 			
 
