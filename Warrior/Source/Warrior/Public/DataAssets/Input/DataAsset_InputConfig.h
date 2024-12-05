@@ -6,7 +6,6 @@
 #include "Engine/DataAsset.h"
 #include "GameplayTagContainer.h"
 #include "InputAction.h"
-#include "InputMappingContext.h"
 #include "DataAsset_InputConfig.generated.h"
 
 class UInputAction;
@@ -23,6 +22,11 @@ struct FWarriorInputActionConfig
 
 		UPROPERTY(EditDefaultsOnly,BlueprintReadOnly)
 		UInputAction* InputAction;
+
+		bool IsValid() const
+		{
+			return InputTag.IsValid() && InputAction;
+		}
 	
 };
 /**
@@ -39,6 +43,10 @@ class WARRIOR_API UDataAsset_InputConfig : public UDataAsset
 
 		UPROPERTY(EditDefaultsOnly,BlueprintReadOnly, meta=(TitleProperty = "InputTag"))
 	    TArray<FWarriorInputActionConfig> NativeInputActions;
+	
 
 		UInputAction* FindNativeInputActionByTag(const FGameplayTag& InInputTag) const;
+
+		UPROPERTY(EditDefaultsOnly,BlueprintReadOnly, meta=(TitleProperty = "InputTag"))
+		TArray<FWarriorInputActionConfig> AbilityInputActions;
 };
