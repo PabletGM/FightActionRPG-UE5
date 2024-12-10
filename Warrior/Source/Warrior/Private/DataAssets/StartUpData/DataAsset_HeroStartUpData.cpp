@@ -6,12 +6,7 @@
 #include "AbilitySystem/Abilities/WarriorGameplayAbility.h"
 
 
-//check if inputtag and ability to grant is valid
-bool FWarriorHeroAbilitySet::IsValid() const
-{
-	
-	return InputTag.IsValid() && AbilityToGrant;
-}
+
 
 void UDataAsset_HeroStartUpData::GiveToAbilitySystemComponent(UWarriorAbilitySystemComponent* InASCToGive,
 	int32 ApplyLevel)
