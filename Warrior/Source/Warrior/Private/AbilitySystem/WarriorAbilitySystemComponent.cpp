@@ -41,3 +41,23 @@ void UWarriorAbilitySystemComponent::GrantHeroWeaponAbilities(const TArray<FWarr
 		OutGrantedAbilitySpecHandles.AddUnique(GiveAbility(AbilitySpec));
 	}
 }
+
+void UWarriorAbilitySystemComponent::RemoveGrantedWeaponAbilities(
+	TArray<FGameplayAbilitySpecHandle>& InSpecHandlesToRemove)
+{
+	if(InSpecHandlesToRemove.IsEmpty())
+	{
+		return;
+	}
+
+	//clear abilities
+	for(const FGameplayAbilitySpecHandle& SpecHandle : InSpecHandlesToRemove)
+	{
+		if(SpecHandle.IsValid())
+		{
+			ClearAbility(SpecHandle);
+		}
+	}
+	//clear array of abilities
+	InSpecHandlesToRemove.Empty();
+}
