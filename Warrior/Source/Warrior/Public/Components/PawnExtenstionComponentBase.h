@@ -1,5 +1,5 @@
 // By Pablo Garcia
-
+//A generic utility component for interaction with the owning APawn and its AController
 #pragma once
 
 #include "CoreMinimal.h"

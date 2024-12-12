@@ -1,5 +1,5 @@
 // By Pablo Garcia
-
+//Extends UPawnExtensionComponentBase to add weapon registration and retrieval capabilities for characters
 #pragma once
 
 #include "CoreMinimal.h"
@@ -19,9 +19,11 @@ class WARRIOR_API UPawnCombatComponent : public UPawnExtenstionComponentBase
 	GENERATED_BODY()
 
 public:
+	//Associates a weapon with a tag in the map, Ensures no duplicate tags are registered, Optionally sets the weapon as the currently equipped one
 	UFUNCTION(BlueprintCallable, Category = "Warrior|Combat")
 	void RegisterSpawnedWeapon(FGameplayTag InWeaponTagToRegister,AWarriorWeaponBase* InWeaponToRegister, bool bRegisterAsEquippedWeapon = false);
 
+	//Retrieves a weapon using its gameplay tag, Performs checks to ensure the tag is valid and exists in the map
 	UFUNCTION(BlueprintCallable, Category = "Warrior|Combat")
 	AWarriorWeaponBase* GetCharacterCarriedWeaponByTag(FGameplayTag InWeaponTagToGet) const;
 
@@ -29,6 +31,7 @@ public:
 	UPROPERTY(BlueprintReadWrite, Category = "Warrior|Combat")
 	FGameplayTag CurrentEquippedWeaponTag;
 
+	//Retrieves the currently equipped weapon based on CurrentEquippedWeaponTag
 	UFUNCTION(BlueprintCallable, Category = "Warrior|Combat")
 	AWarriorWeaponBase* GetCharacterCurrentEquippedWeapon() const;
 private:
