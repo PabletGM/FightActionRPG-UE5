@@ -12,12 +12,16 @@ class AWarriorHeroController;
 /**
  * 
  */
+
+///Extends UWarriorGameplayAbility to add hero-specific functionality.
 UCLASS()
 class WARRIOR_API UWarriorHeroGameplayAbility : public UWarriorGameplayAbility
 {
 	GENERATED_BODY()
 
 public:
+	//Utility functions for fetching hero-specific components,
+	//such as GetHeroCharacterFromActorInfo and GetHeroCombatComponentFromActorInfo.
 	UFUNCTION(BlueprintPure, Category = "Warrior|Ability")
 	AWarriorHeroCharacter* GetHeroCharacterFromActorInfo();
 
@@ -28,6 +32,7 @@ public:
 	UHeroCombatComponent* GetHeroCombatComponentFromActorInfo();
 
 private:
+	//Cached references to hero-related components (AWarriorHeroCharacter, AWarriorHeroController) for optimized access
 	TWeakObjectPtr<AWarriorHeroCharacter> CachedWarriorHeroCharacter;
 	TWeakObjectPtr<AWarriorHeroController> CachedWarriorHeroController;
 };

@@ -9,7 +9,7 @@
 class UPawnCombatComponent;
 class UWarriorAbilitySystemComponent;
 
-//types of abilities and its spawn
+///Determines whether the ability is activated automatically (OnGiven) when granted or triggered manually (OnTriggered).
 UENUM(BlueprintType)
 enum class EWarriorAbilityActivationPolicy : uint8
 {
@@ -19,6 +19,11 @@ enum class EWarriorAbilityActivationPolicy : uint8
 /**
  * 
  */
+
+
+
+///Defines the base functionality for all gameplay abilities in the game.
+///Inheritance: Extends UGameplayAbility from the Unreal Engine Gameplay Ability System (GAS)
 UCLASS()
 class WARRIOR_API UWarriorGameplayAbility : public UGameplayAbility
 {

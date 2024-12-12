@@ -8,6 +8,8 @@
 
 class UStaticMeshComponent;
 class UBoxComponent;
+
+///Defines the foundational components of any weapon.
 UCLASS()
 class WARRIOR_API AWarriorWeaponBase : public AActor
 {
