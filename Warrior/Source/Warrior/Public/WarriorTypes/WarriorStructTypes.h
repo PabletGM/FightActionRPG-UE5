@@ -5,7 +5,7 @@
 #include "WarriorStructTypes.generated.h"
 
 class UWarriorHeroLinkedAnimLayer;
-class UWarriorGameplayAbility;
+class UWarriorHeroGameplayAbility;
 class UInputMappingContext;
 ///Defines an ability set tied to the hero's weapon
 USTRUCT(BlueprintType)
@@ -19,7 +19,7 @@ struct FWarriorHeroAbilitySet
 
 	//specifying the ability class.
 	UPROPERTY(EditDefaultsOnly,BlueprintReadOnly)
-	TSubclassOf<UWarriorGameplayAbility> AbilityToGrant;
+	TSubclassOf<UWarriorHeroGameplayAbility> AbilityToGrant;
 
 	bool IsValid() const;
 };
