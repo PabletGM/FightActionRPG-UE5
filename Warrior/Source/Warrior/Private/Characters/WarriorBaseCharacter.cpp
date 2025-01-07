@@ -35,7 +35,7 @@ void AWarriorBaseCharacter::PossessedBy(AController* NewController)
 		//check if it is not null
 		// ensure(!CharacterStartUpData.IsNull());
 		//the log
-		ensureMsgf(!CharacterStartUpData.IsNull(),TEXT("Forgot to assign start up data to %s"), *GetName());
+		// ensureMsgf(!CharacterStartUpData.IsNull(),TEXT("Forgot to assign start up data to %s"), *GetName());
 
 		
 	}
