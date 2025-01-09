@@ -12,6 +12,23 @@ void UDataAsset_StartUpDataBase::GiveToAbilitySystemComponent(UWarriorAbilitySys
 
 	GrantAbilities(ActivateOnGivenAbilities,InASCToGive, ApplyLevel);
 	GrantAbilities(ReactiveAbilities,InASCToGive, ApplyLevel);
+
+	//if there is any gameplayEfects on array we apply them
+	if(!StartUpGameplayEffects.IsEmpty())
+	{
+		for(const TSubclassOf<UGameplayEffect>& EffectClass : StartUpGameplayEffects)
+		{
+			if(!EffectClass) continue;
+
+			UGameplayEffect* EffectCDO = EffectClass->GetDefaultObject<UGameplayEffect>();
+			InASCToGive->ApplyGameplayEffectToSelf(
+				EffectCDO,
+				ApplyLevel,
+				InASCToGive->MakeEffectContext()
+			);
+				
+		}
+	}
 }
 
 //InAbilitiesToGive -> A list (array) of ability classes (TSubclassOf<UWarriorGameplayAbility>) to be granted
