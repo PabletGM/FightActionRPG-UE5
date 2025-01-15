@@ -31,7 +31,10 @@ public:
 	UFUNCTION(BlueprintPure, Category = "Warrior|Ability")
 	UHeroCombatComponent* GetHeroCombatComponentFromActorInfo();
 
-	
+	//creates a Gameplay Effect Spec Handle used in the (GAS)
+	UFUNCTION(BlueprintPure, Category = "Warrior|Ability")
+	FGameplayEffectSpecHandle MakeHeroDamageEffect(TSubclassOf<UGameplayEffect> EffectClass, float InWeaponBaseDamage, FGameplayTag InCurrentAttackTypeTag, int32 InCurrentComboCount);
+
 private:
 	//Cached references to hero-related components (AWarriorHeroCharacter, AWarriorHeroController) for optimized access
 	TWeakObjectPtr<AWarriorHeroCharacter> CachedWarriorHeroCharacter;
