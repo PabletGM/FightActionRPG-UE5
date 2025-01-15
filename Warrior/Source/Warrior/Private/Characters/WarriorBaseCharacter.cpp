@@ -4,6 +4,7 @@
 #include "Characters\WarriorBaseCharacter.h"
 #include "AbilitySystem/WarriorAbilitySystemComponent.h"
 #include "AbilitySystem/WarriorAttributeSet.h"
+#include "Components/Combat/HeroCombatComponent.h"
 
 // Sets default values
 AWarriorBaseCharacter::AWarriorBaseCharacter()
@@ -22,6 +23,11 @@ AWarriorBaseCharacter::AWarriorBaseCharacter()
 UAbilitySystemComponent* AWarriorBaseCharacter::GetAbilitySystemComponent() const
 {
 	return GetWarriorAbilitySystemComponent();
+}
+
+UPawnCombatComponent* AWarriorBaseCharacter::GetPawnCombatComponent() const
+{
+	return nullptr;
 }
 
 void AWarriorBaseCharacter::PossessedBy(AController* NewController)

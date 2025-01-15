@@ -3,6 +3,7 @@
 
 #include "Components/Combat/PawnCombatComponent.h"
 #include "WarriorDebugHelper.h"
+#include "Components/BoxComponent.h"
 #include "Items/Weapons/WarriorWeaponBase.h"
 
 // registration and management of weapons for a character
@@ -67,4 +68,30 @@ AWarriorWeaponBase* UPawnCombatComponent::GetCharacterCurrentEquippedWeapon() co
 	}
 	UE_LOG(LogTemp, Warning, TEXT("No weapon found with current tag: %s"), *CurrentEquippedWeaponTag.ToString());
 	return nullptr;
+}
+
+void UPawnCombatComponent::ToggleWeaponCollision(bool bShouldEnable, EToggleDamageType ToggleDamageType)
+{
+	if(ToggleDamageType == EToggleDamageType::CurrentEquippedWeapon)
+	{
+		//check if there is a weapon to toggle
+		AWarriorWeaponBase* WeaponToToggle = GetCharacterCurrentEquippedWeapon();
+
+		check(WeaponToToggle);
+
+		//if it can be enabled the collision
+		if(bShouldEnable)
+		{
+			WeaponToToggle->GetWeaponCollisionBox()->SetCollisionEnabled(ECollisionEnabled::QueryOnly);
+			Debug::Print(WeaponToToggle->GetName() + TEXT(" collision enabled"), FColor::Green);
+		}
+		else
+		{
+			WeaponToToggle->GetWeaponCollisionBox()->SetCollisionEnabled(ECollisionEnabled::NoCollision);
+			Debug::Print(WeaponToToggle->GetName() + TEXT(" collision disabled"), FColor::Red);
+
+		}
+		
+			
+	}
 }

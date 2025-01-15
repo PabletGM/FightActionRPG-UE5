@@ -10,6 +10,14 @@
 
 
 class AWarriorWeaponBase;
+
+UENUM(BlueprintType)
+enum class EToggleDamageType : uint8
+{
+	CurrentEquippedWeapon,
+	LeftHand,
+	RightHand
+};
 /**
  * 
  */
@@ -34,6 +42,9 @@ public:
 	//Retrieves the currently equipped weapon based on CurrentEquippedWeaponTag
 	UFUNCTION(BlueprintCallable, Category = "Warrior|Combat")
 	AWarriorWeaponBase* GetCharacterCurrentEquippedWeapon() const;
+
+	UFUNCTION(BlueprintCallable, Category = "Warrior|Combat")
+	void ToggleWeaponCollision(bool bShouldEnable, EToggleDamageType ToggleDamageType = EToggleDamageType::CurrentEquippedWeapon);
 private:
 	//store weapons that can be retrieved
 	//A TMap (similar to a dictionary or hashmap) that maps a FGameplayTag
