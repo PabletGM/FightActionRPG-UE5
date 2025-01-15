@@ -31,6 +31,7 @@ public:
 	UFUNCTION(BlueprintPure, Category = "Warrior|Ability")
 	UHeroCombatComponent* GetHeroCombatComponentFromActorInfo();
 
+	
 private:
 	//Cached references to hero-related components (AWarriorHeroCharacter, AWarriorHeroController) for optimized access
 	TWeakObjectPtr<AWarriorHeroCharacter> CachedWarriorHeroCharacter;

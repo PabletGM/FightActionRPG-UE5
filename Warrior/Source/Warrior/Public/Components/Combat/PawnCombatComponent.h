@@ -45,6 +45,12 @@ public:
 
 	UFUNCTION(BlueprintCallable, Category = "Warrior|Combat")
 	void ToggleWeaponCollision(bool bShouldEnable, EToggleDamageType ToggleDamageType = EToggleDamageType::CurrentEquippedWeapon);
+
+	virtual void OnHitTargetActor(AActor* HitActor);
+	virtual void OnWeaponPulledFromTargetActor(AActor* InteractedActor);
+
+protected:
+	TArray<AActor*> OverlappedActors;
 private:
 	//store weapons that can be retrieved
 	//A TMap (similar to a dictionary or hashmap) that maps a FGameplayTag
