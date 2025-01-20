@@ -1,8 +1,10 @@
 // By Pablo Garcia
 
-#include "AbilitySystem/WarriorAttributeSet.h"
+
 #include "AbilitySystem/GEExecCalc/GEExecCalc_DamageTaken.h"
+#include "AbilitySystem/WarriorAttributeSet.h"
 #include "WarriorGameplayTags.h"
+#include "WarriorDebugHelper.h"
 
 //sets up attribute capture definitions for two gameplay attributes (AttackPower and DefensePower) defined in the UWarriorAttributeSet
 //logic for capturing attributes and provides a clean way to access them in the execution calculation
@@ -11,12 +13,14 @@ struct FWarriorDamageCapture
 	//macros to capture an attribute definition
 	DECLARE_ATTRIBUTE_CAPTUREDEF(AttackPower);
 	DECLARE_ATTRIBUTE_CAPTUREDEF(DefensePower);
+	DECLARE_ATTRIBUTE_CAPTUREDEF(DamageTaken)
 
 	// Defines the capture of an attribute (The attribute's owning class, Name of the attribute,  Whether the attribute is captured from the source or the target,  Whether to snapshot the attribute value)
 	FWarriorDamageCapture()
 	{
 		DEFINE_ATTRIBUTE_CAPTUREDEF(UWarriorAttributeSet,AttackPower,Source,false);
 		DEFINE_ATTRIBUTE_CAPTUREDEF(UWarriorAttributeSet,DefensePower,Target,false);
+		DEFINE_ATTRIBUTE_CAPTUREDEF(UWarriorAttributeSet,DamageTaken,Target,false);
 	}
 };
 
@@ -80,7 +84,8 @@ void UGEExecCalc_DamageTaken::Execute_Implementation(const FGameplayEffectCustom
 	//These values are captured based on the definitions in FWarriorDamageCapture
 	float SourceAttackPower = 0.f;
 	ExecutionParams.AttemptCalculateCapturedAttributeMagnitude(GetWarriorDamageCapture().AttackPowerDef, EvaluateParameters, SourceAttackPower);
-
+	Debug::Print(TEXT("SourceAttackPower"), SourceAttackPower);
+	
 	float BaseDamage = 0.f;
 	int32 UsedLightAttackComboCount = 0;
 	int32 UsedHeavyAttackComboCount = 0;
@@ -90,19 +95,59 @@ void UGEExecCalc_DamageTaken::Execute_Implementation(const FGameplayEffectCustom
 		if(TagMagnitude.Key.MatchesTagExact(WarriorGameplayTags::Shared_SetByCaller_BaseDamage))
 		{
 			BaseDamage = TagMagnitude.Value;
+			Debug::Print(TEXT("BaseDamage"), BaseDamage);
 		}
 
 		if(TagMagnitude.Key.MatchesTagExact(WarriorGameplayTags::Player_SetByCaller_AttackType_Light))
 		{
 			UsedLightAttackComboCount = TagMagnitude.Value;
+			Debug::Print(TEXT("UsedLightAttackComboCount"), UsedLightAttackComboCount);
 		}
 
 		if(TagMagnitude.Key.MatchesTagExact(WarriorGameplayTags::Player_SetByCaller_AttackType_Heavy))
 		{
 			UsedHeavyAttackComboCount = TagMagnitude.Value;
+			Debug::Print(TEXT("UsedHeavyAttackComboCount"), UsedHeavyAttackComboCount);
 		}
 	}
 	
 	float TargetDefensePower = 0.f;
 	ExecutionParams.AttemptCalculateCapturedAttributeMagnitude(GetWarriorDamageCapture().DefensePowerDef, EvaluateParameters,TargetDefensePower );
+	Debug::Print(TEXT("TargetDefensePower"), TargetDefensePower);
+
+	//combo light damage
+	if(UsedLightAttackComboCount != 0)
+	{
+		//starting from the second move, scale up the daage 5%, the third move 10%
+		const float DamageIncreasePercentLight = (UsedLightAttackComboCount -1) * 0.05 + 1.f ;
+
+		BaseDamage *= DamageIncreasePercentLight;
+		Debug::Print(TEXT("ScaledBaseDamageLight"), BaseDamage);
+	}
+
+	//combo heavy damage
+	if(UsedHeavyAttackComboCount != 0)
+	{
+		//starting from the second move, scale up the daMage 5%, the third move 10%
+		const float DamageIncreasePercentHeavy = UsedHeavyAttackComboCount  * 0.15 + 1.f ;
+
+		BaseDamage *= DamageIncreasePercentHeavy;
+		Debug::Print(TEXT("ScaledBaseDamageHeavy"), BaseDamage);
+	}
+
+	const float FinalDamageDone = BaseDamage * SourceAttackPower / TargetDefensePower;
+	Debug::Print(TEXT("FinalDamageDone"), FinalDamageDone);
+
+	//we modify the attribute
+	if(FinalDamageDone > 0.f)
+	{
+		//so we add the attribute to the capture list
+		//and we make DamageTaken = FinalDamageDone
+		OutExecutionOutput.AddOutputModifier(
+			FGameplayModifierEvaluatedData(
+				GetWarriorDamageCapture().DamageTakenProperty,
+				EGameplayModOp::Override,
+				FinalDamageDone)
+				);
+	}
 }
