@@ -24,6 +24,9 @@ class WARRIOR_API UWarriorAttributeSet : public UAttributeSet
 public:
 	 UWarriorAttributeSet();
 
+	//This function is called whenever a GameplayEffect modifies an attribute (e.g., applying damage or healing).
+	virtual void PostGameplayEffectExecute(const struct FGameplayEffectModCallbackData &Data) override;
+	
 	UPROPERTY(BlueprintReadOnly, Category = "Health")
 	FGameplayAttributeData CurrentHealth;
 	ATTRIBUTE_ACCESSORS(UWarriorAttributeSet, CurrentHealth)
