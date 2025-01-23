@@ -40,14 +40,26 @@ void UHeroCombatComponent::OnHitTargetActor(AActor* HitActor)
     //The actor that was hit
     Data.Target = HitActor;
 
-    //Sends a gameplay event using Unreal Engine's GAS signaling that a melee hit occurred
+    //Sends a gameplay event using Unreal Engine's GAS signaling that a melee hit occurred so the GA_LightAttackMaster or GA_HeavyAttackMaster knows
     UAbilitySystemBlueprintLibrary::SendGameplayEventToActor(
         GetOwningPawn(),
         WarriorGameplayTags::Shared_Event_MeleeHit,
         Data
         );
+
+    //so GA_Hero_HitPause knows
+    UAbilitySystemBlueprintLibrary::SendGameplayEventToActor(
+       GetOwningPawn(),
+       WarriorGameplayTags::Player_Event_HitPause,
+       FGameplayEventData()
+       );
 }
 
 void UHeroCombatComponent::OnWeaponPulledFromTargetActor(AActor* InteractedActor)
 {
+    UAbilitySystemBlueprintLibrary::SendGameplayEventToActor(
+      GetOwningPawn(),
+      WarriorGameplayTags::Player_Event_HitPause,
+      FGameplayEventData()
+      );
 }
